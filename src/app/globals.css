@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* ===== 温暖治愈风主题（奶油 + 暖橘 + 柔粉）===== */
+:root {
+  --bg-cream: #fdf8f3;       /* 奶油底 */
+  --bg-soft: #faf3e8;        /* 浅米色 */
+  --bg-card: #ffffff;        /* 卡片白 */
+  --color-primary: #ff8c5a;  /* 主色 暖橘 */
+  --color-primary-soft: #ffb38a; /* 浅橘 */
+  --color-secondary: #f5a8b8; /* 柔粉 */
+  --color-success: #8bc891;  /* 成功绿 */
+  --color-warning: #f4c063;  /* 警告黄 */
+  --color-danger: #e07a6e;   /* 危险红 */
+  --color-text: #3a2e2a;     /* 主文字 暖棕 */
+  --color-text-soft: #8a7a73;/* 次文字 浅棕 */
+  --color-border: #f0e3d6;   /* 边框 浅米 */
+  --color-vip: #e8b15c;      /* VIP 金 */
+  --color-svip: #c084fc;     /* SVIP 紫 */
+  /* 圆润温暖字体栈（系统字体，无网络依赖） */
+  --font-sans: ui-rounded, "Hiragino Maru Gothic ProN", "Quicksand", "Comfortaa", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--bg-cream);
+  --color-foreground: var(--color-text);
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-secondary: var(--color-secondary);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
+  --color-border: var(--color-border);
+  --color-vip: var(--color-vip);
+  --color-svip: var(--color-svip);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background: var(--bg-cream);
+  color: var(--color-text);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 隐藏滚动条但保持可滚动 */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 软阴影 */
+.shadow-soft {
+  box-shadow: 0 2px 12px rgba(255, 140, 90, 0.08), 0 1px 3px rgba(58, 46, 42, 0.04);
+}
+.shadow-card {
+  box-shadow: 0 4px 20px rgba(255, 140, 90, 0.1);
+}
+
+/* 渐变背景（会员卡等） */
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #ff8c5a 0%, #f5a8b8 100%);
+}
+.bg-gradient-vip {
+  background: linear-gradient(135deg, #f4c063 0%, #ff8c5a 100%);
+}
+.bg-gradient-svip {
+  background: linear-gradient(135deg, #c084fc 0%, #f5a8b8 100%);
+}
+
+/* 移动端优化 */
+button, a { touch-action: manipulation; }
+
+/* 聊天气泡 */
+.bubble-user {
+  background: var(--color-primary);
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+}
+.bubble-ai {
+  background: white;
+  color: var(--color-text);
+  border-radius: 18px 18px 18px 4px;
+  box-shadow: 0 2px 8px rgba(58, 46, 42, 0.06);
+}
+
+/* 入场动画 */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.3s ease-out; }
+
+/* ===== v0.4.0 — 主题切换(plan F-THEME-01/02)=====
+ *
+ * 设计原则:
+ * - :root 默认是 young 主题(沿用 v0.3.x CSS variables,字体 14px / 暖色)
+ * - [data-theme="senior"] 在 :root 基础上覆盖:
+ *   ① 基础字号 14 → 18
+ *   ② 文字色加深深棕(对比度 ≥ 7:1,WCAG AAA)
+ *   ③ 按钮最小高度 40 → 56
+ *   ④ 圆角 12 → 8
+ *   ⑤ lucide icon 描边 1.5 → 2.5(更"实"更清晰)
+ *
+ * 注:所有变量已在 src/lib/theme.ts 的 THEME_CSS_VARS 定义;这里只写 CSS 侧消费
+ */
+:root {
+  --base-font-size: 14px;
+  --button-min-height: 40px;
+  --border-radius: 12px;
+  --icon-stroke: 1.5;
+}
+
+html[data-theme="senior"] {
+  --base-font-size: 18px;
+  --button-min-height: 56px;
+  --border-radius: 8px;
+  --icon-stroke: 2.5;
+  /* senior:文字加深 + 卡片纯白 + 边框加深(高对比) */
+  --color-text: #1a0f0a;
+  --color-text-soft: #4a3a32;
+  --bg-card: #ffffff;
+  --color-border: #c8b8a8;
+}
+
+html[data-theme="senior"] body {
+  font-size: var(--base-font-size);
+  /* senior 主题字体略加粗,老人眼睛友好 */
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* senior 主题按钮:更"实"、更大 */
+html[data-theme="senior"] button,
+html[data-theme="senior"] a[role="button"] {
+  min-height: var(--button-min-height);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+}
+
+/* senior 主题卡片:更明显的边框 + 更大圆角内圆角 */
+html[data-theme="senior"] .shadow-card,
+html[data-theme="senior"] .shadow-soft {
+  box-shadow: 0 2px 8px rgba(26, 15, 10, 0.1), 0 1px 2px rgba(26, 15, 10, 0.08);
+  border: 1px solid var(--color-border);
+}
+
+/* lucide-react icon 在 senior 主题下用更粗描边 */
+html[data-theme="senior"] svg.lucide,
+html[data-theme="senior"] [class*="lucide-"] {
+  stroke-width: var(--icon-stroke);
+}
+
+/* senior 主题:底部导航字号放大 */
+html[data-theme="senior"] nav {
+  font-size: 16px;
+}
+
+/* ===== v0.4.0.1 P0-2 — Senior 视觉规则 4 条 CSS 增量 =====
+ *
+ * 背景：v0.4.0 实施 1 在 globals.css 写了 `html[data-theme="senior"]` 8 条规则
+ *   （--base-font-size / button min-height / 圆角 / icon stroke / 颜色加深 等），
+ *   但漏了 4 处细节：
+ *     ① 标题字号（.text-lg/.text-xl 之外显式变量）
+ *     ② icon 尺寸变量
+ *     ③ 可点击区域最小 48px 标准化变量（WCAG 2.5.5 Target Size Level AAA）
+ *     ④ Tailwind .text-sm / .text-xs 字号显式覆盖（默认 14/12 在 senior 偏小）
+ *
+ * 设计：与现有 html[data-theme="senior"] 规则并存（不重写不破坏），用
+ *   `[data-theme="senior"]` 选择器作用到任何有 data-theme 属性的元素（html / 子容器），
+ *   通过 CSS 变量向下传递到子组件。Tailwind class 用属性选择器显式覆盖。
+ */
+[data-theme="senior"] {
+  --font-size-base: 18px;        /* 默认 14px → 18px (+30%) */
+  --font-size-title: 22px;       /* 默认 18px → 22px */
+  --icon-size-base: 28px;        /* 默认 20px → 28px (+40%) */
+  --tap-target-min: 48px;        /* 默认 36px → 48px (适老化最小可点击区域) */
+  --color-contrast: 1.5;         /* 高对比度（WCAG AAA） */
+  --line-height-base: 1.7;       /* 行高更松（适合视力下降） */
+}
+
+[data-theme="senior"] button,
+[data-theme="senior"] a {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 16px;
+}
+
+[data-theme="senior"] .text-sm { font-size: 16px; }
+[data-theme="senior"] .text-xs { font-size: 14px; }

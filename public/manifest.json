@@ -1,0 +1,41 @@
+{
+  "name": "毛球日记 · PetCare",
+  "short_name": "毛球日记",
+  "description": "AI 健康问答 · 拍照记事 · 用药推荐 · 一站式宠物护理",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdf8f3",
+  "theme_color": "#ff8c5a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "health", "pets"],
+  "lang": "zh-CN",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "隐私政策",
+      "short_name": "隐私",
+      "url": "/privacy",
+      "description": "查看毛球日记隐私政策"
+    },
+    {
+      "name": "用户协议",
+      "short_name": "协议",
+      "url": "/terms",
+      "description": "查看毛球日记用户协议"
+    }
+  ]
+}

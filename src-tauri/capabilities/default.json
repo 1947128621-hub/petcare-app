@@ -1,0 +1,15 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Default permissions for the app (Windows + Android) — incl. OTA updater (MUST-07/14 拍板)",
+  "windows": [
+    "main"
+  ],
+  "android": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "updater:default"
+  ]
+}

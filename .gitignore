@@ -1,0 +1,61 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# ========================================
+# Tauri & OTA 安全（MUST-07 拍板）
+# 私钥**绝不**进 git。私钥本体在 1Password/Vault
+# ========================================
+/src-tauri/target/
+/src-tauri/gen/schemas/
+*.minisign
+petcare-app-keys
+petcare-app-keys.pub
+.tauri/
+
+# ========================================
+# v0.4.0.3 OTA push 加的（GH 单文件 100MB 限制）：
+# - artifacts/ 是历史验证日志+APK（2.7GB），不入 git
+# - src-tauri/gen/android/ 是 Android 构建中间产物
+# ========================================
+/artifacts/
+/src-tauri/gen/android/
+

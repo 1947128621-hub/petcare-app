@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {"id": "1", "status": "completed", "content": "实现 src/app/(main)/membership/page.tsx 会员中心"},
+    {"id": "2", "status": "completed", "content": "实现 src/app/(main)/updates/page.tsx 持续更新中心"},
+    {"id": "3", "status": "completed", "content": "实现 src/app/(main)/profile/page.tsx 我的"},
+    {"id": "4", "status": "completed", "content": "实现 src/app/admin/page.tsx 运营后台"},
+    {"id": "5", "status": "completed", "content": "运行 npx tsc --noEmit 检查类型"},
+    {"id": "6", "status": "completed", "content": "修复 TS 错误（0 错误通过）"},
+    {"id": "7", "status": "completed", "content": "写 artifacts/verification/v0.1/...log 报告"},
+    {"id": "8", "status": "completed", "content": "写最终 .md 汇总报告给用户"}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "0.4.0.3",
+  "pub_date": "2026-08-05T00:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "<待签名后填>",
+      "url": "https://github.com/1947128621-hub/petcare-app/releases/download/v0.4.0.3/毛球日记_0.4.0.3_x64-setup.exe"
+    },
+    "android-arm64": {
+      "signature": "<待签名后填>",
+      "url": "https://github.com/1947128621-hub/petcare-app/releases/download/v0.4.0.3/毛球日记_v0.4.0.3-arm64.apk"
+    }
+  }
+}
